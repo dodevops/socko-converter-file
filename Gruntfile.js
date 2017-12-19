@@ -100,6 +100,7 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-clean')
   grunt.loadNpmTasks('grunt-contrib-copy')
   grunt.loadNpmTasks('grunt-typedoc')
+  grunt.loadNpmTasks('grunt-coveralls')
 
   grunt.registerTask(
     'build',

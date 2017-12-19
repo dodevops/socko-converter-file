@@ -84,6 +84,11 @@ module.exports = function (grunt) {
         },
         src: ['index.ts']
       }
+    },
+    coveralls: {
+      default: {
+        src: 'test/coverage/reports/lcov.info'
+      }
     }
   })
 

@@ -8,6 +8,7 @@ test/**/*.js
 test/**/*.d.ts
 test/**/*.js.map
 .tscache
+flavourDoc.js
 # Created by .ignore support plugin (hsz.mobi)
 ### Eclipse template
 

@@ -28,7 +28,11 @@ module.exports = function (grunt) {
     copy: {
       test: {
         files: {
-          'test/coverage/instrument/': 'test/**/*.js'
+          'test/coverage/instrument/': [
+            'test/**/*.js',
+            'test/assets/**/*',
+            'test/assets/**/.socko.include'
+          ]
         },
         options: {
           expand: true
@@ -80,7 +84,7 @@ module.exports = function (grunt) {
           out: 'docs/',
           name: 'socko-converter-file',
           readme: 'README.md',
-          "external-modulemap": '.*/lib/([^/]*)/.*'
+          'external-modulemap': '.*/lib/([^/]*)/.*'
         },
         src: ['index.ts']
       }

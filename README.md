@@ -1,5 +1,7 @@
 # socko-converter-file - Converting file hierarchies to SOCKO! nodes
 
+[![npm](https://img.shields.io/npm/v/socko-converter-file.svg)](https://www.npmjs.com/package/socko-converter-file)
+
 ## Introduction
 
 This is a converter for the [SOCKO! api](https://github.com/dodevops/socko-api) converting file hierarchies to

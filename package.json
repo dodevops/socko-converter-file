@@ -26,7 +26,8 @@
     "bluebird": "^3.5.1",
     "loglevel": "^1.6.0",
     "file-hierarchy": "^1.0.0",
-    "xregexp": "^3.2.0"
+    "xregexp": "^3.2.0",
+    "socko-api": "^0.2.0"
   },
   "devDependencies": {
     "@types/xregexp": "^3.0.29",

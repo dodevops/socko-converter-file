@@ -1,6 +1,6 @@
 # socko-converter-file - Converting file hierarchies to SOCKO! nodes
 
-[![npm](https://img.shields.io/npm/v/socko-converter-file.svg)](https://www.npmjs.com/package/socko-converter-file)
+[![Build Status](https://travis-ci.org/dodevops/socko-converter-file.svg?branch=master)](https://travis-ci.org/dodevops/socko-converter-file)  [![npm](https://img.shields.io/npm/v/socko-converter-file.svg)](https://www.npmjs.com/package/socko-converter-file)
 
 ## Introduction
 

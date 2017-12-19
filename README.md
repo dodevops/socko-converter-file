@@ -9,6 +9,8 @@ SOCKO! nodes and vice versa.
 
 It's used by the SOCKO! cli and grunt plugins as the main link to the SOCKO! api.
 
+Check out the [API-documentation](https://dodevops.github.io/socko-converter-file/) for more details.
+
 ## Features
 
 Currently the following features exist:

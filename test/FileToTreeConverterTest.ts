@@ -2,7 +2,7 @@ import 'mocha'
 import { FileToTreeConverter } from '../lib/converter/FileToTreeConverter'
 import { FileNode, ScanOptions } from 'file-hierarchy'
 import * as path from 'path'
-import { BucketNodeInterface, OutputNode, SocketNodeInterface, SockoNodeType, SockoNodeInterface } from 'socko-api'
+import { BucketNodeInterface, SocketNodeInterface, SockoNodeInterface, SockoNodeType } from 'socko-api'
 import chai = require('chai')
 import chaiAsPromised = require('chai-as-promised')
 import Bluebird = require('bluebird')
@@ -81,22 +81,21 @@ describe('FileToTreeConverter', function (): void {
             54,
             63,
             70,
+            96,
+            105,
+            124,
+            135,
+            144,
             151,
-            172,
-            190,
-            211,
-            223,
-            239,
-            478,
-            500,
-            519,
-            541,
-            554,
-            571
+            176,
+            185,
+            204,
+            215,
+            224,
+            231
           ]
 
           let sortedSlots = slots.sort((a, b) => { return a.index - b.index })
-
           sortedSlots.forEach((slot, index) => {
             chai.expect(slot.index).to.equal(slotIndices[index])
           })
@@ -114,6 +113,9 @@ describe('FileToTreeConverter', function (): void {
               ).readContent(),
               testCartridgeContent: (
                 value.getChildByName('testCartridge.txt') as SockoNodeInterface
+              ).readContent(),
+              testSocketNodeContent: (
+                value.getChildByName('testSocket.txt') as SocketNodeInterface
               ).readContent()
             }
           )
@@ -127,6 +129,74 @@ describe('FileToTreeConverter', function (): void {
           chai.expect(
             value.testCartridgeContent.toString('UTF-8')
           ).to.equal('CARTRIDGECONTENT')
+          chai.expect(
+            value.testSocketNodeContent
+          ).to.equal(`CARTRIDGES
+
+HASH:
+
+
+JSON:
+
+
+MULTILINESLASH:
+
+
+NATIVE:
+
+
+SLASH:
+
+
+XML:
+
+
+COLLECTORSREGEXP
+
+HASH:
+
+
+JSON:
+
+
+
+MULTILINESLASH:
+
+
+
+NATIVE:
+
+
+
+SLASH:
+
+
+XML:
+
+
+COLLECTORSGLOB:
+
+HASH:
+
+
+JSON:
+
+
+
+MULTILINESLASH:
+
+
+
+NATIVE:
+
+
+
+SLASH:
+
+
+XML:
+`
+          )
         }
       )
   })

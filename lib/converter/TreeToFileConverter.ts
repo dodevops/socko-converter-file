@@ -79,7 +79,7 @@ export class TreeToFileConverter {
   private _processDirectory (node: SockoNodeInterface, nodePath: string): Bluebird<void> {
     return Bluebird.fromCallback(fs.mkdir.bind(null, nodePath))
       .catch(
-        (error) => {
+        (error: any) => {
           return error.code === 'EEXIST'
         },
         () => {
@@ -138,7 +138,7 @@ export class TreeToFileConverter {
               fs.stat.bind(null, nodePath)
             )
               .catch(
-                error => {
+                (error: any) => {
                   return error.code === 'ENOENT'
                 },
                 () => {

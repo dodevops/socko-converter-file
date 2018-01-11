@@ -56,7 +56,10 @@ export class BucketNodeConverter implements NodeConverterInterface {
 
             let patternType: string
 
-            if (match.hasOwnProperty(options.bucketPattern.patternTypeGroupName)) {
+            if (
+              match.hasOwnProperty(options.bucketPattern.patternTypeGroupName) &&
+              match[options.bucketPattern.patternTypeGroupName] !== undefined
+            ) {
               patternType = match[options.bucketPattern.patternTypeGroupName]
             } else {
               this._log.warn(

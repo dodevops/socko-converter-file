@@ -47,21 +47,36 @@ export class BucketNodeConverter implements NodeConverterInterface {
           let match = XRegExp.exec(content.trim(), options.bucketPattern.pattern) as any
           if (!match) {
             return Bluebird.reject(new BucketPatternDidNotMatchError(options.bucketPattern.pattern.source))
-          } else if (!match.hasOwnProperty('maxDepth')) {
-            return Bluebird.reject(new InvalidBucketPatternError('maxDepth'))
-          } else if (!match.hasOwnProperty('pattern')) {
-            return Bluebird.reject(new InvalidBucketPatternError('pattern'))
+          } else if (!match.hasOwnProperty(options.bucketPattern.maxDepthGroupName)) {
+            return Bluebird.reject(new InvalidBucketPatternError(options.bucketPattern.maxDepthGroupName))
+          } else if (!match.hasOwnProperty(options.bucketPattern.patternGroupName)) {
+            return Bluebird.reject(new InvalidBucketPatternError(options.bucketPattern.patternGroupName))
           } else {
             let pattern: string | RegExp
 
-            if (match.patternType === options.bucketPattern.regExpPatternFlag) {
+            let patternType: string
+
+            if (match.hasOwnProperty(options.bucketPattern.patternTypeGroupName)) {
+              patternType = match[options.bucketPattern.patternTypeGroupName]
+            } else {
+              this._log.warn(
+                'The patterntype is missing from the bucket pattern. This is deprecated and support for it' +
+                'will be removed in future versions. Please add a "G" between the max depth and the pattern parameter.'
+              )
+              this._log.debug(
+                `Setting patterntype to ${options.bucketPattern.globPatternFlag} to be backwards compatible`
+              )
+              patternType = options.bucketPattern.globPatternFlag
+            }
+
+            if (patternType === options.bucketPattern.regExpPatternFlag) {
               this._log.debug('This is a RegExp pattern')
               pattern = new RegExp(match.pattern)
-            } else if (match.patternType === options.bucketPattern.globPatternFlag) {
+            } else if (patternType === options.bucketPattern.globPatternFlag) {
               this._log.debug('This is a Glob pattern')
               pattern = match.pattern
             } else {
-              return Bluebird.reject(new UnknownPatternTypeError(match.patternType))
+              return Bluebird.reject(new UnknownPatternTypeError(patternType))
             }
 
             this._log.debug('Creating new BucketNodeInterface')

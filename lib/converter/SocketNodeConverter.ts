@@ -132,11 +132,24 @@ export class SocketNodeConverter implements NodeConverterInterface {
                 }
               }
 
+              let maxDepth: number
+
+              if (match[flavour.collectorMaxDepthGroupName] === '-') {
+                this._log.warn(
+                  'Setting max Depth to - is deprecated and ' +
+                  'support for it will be removed in future releases. Please set it to -1 instead.'
+                )
+                this._log.debug('Max depth was -, setting it to -1 to be backwards compatible.')
+                maxDepth = -1
+              } else {
+                maxDepth = parseInt(match[flavour.collectorMaxDepthGroupName], 10)
+              }
+
               cartridgeSlots.push(
                 new CartridgeSlotBuilder()
                   .withIndex(match.index)
                   .withIsCollector(true)
-                  .withMaxDepth(parseInt(match[flavour.collectorMaxDepthGroupName], 10))
+                  .withMaxDepth(maxDepth)
                   .withCartridgePattern(pattern)
                   .build()
               )

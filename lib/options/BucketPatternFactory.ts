@@ -18,7 +18,7 @@ export class BucketPatternFactory {
     pattern.patternTypeGroupName = 'patternType'
     pattern.globPatternFlag = 'G'
     pattern.regExpPatternFlag = 'R'
-    pattern.pattern = XRegExp('^(?<maxDepth>[^:]+):(?<patternType>[^:]+):(?<pattern>.*)$')
+    pattern.pattern = XRegExp('^(?<maxDepth>[^:]+):((?<patternType>[^:]+):)?(?<pattern>.*)$')
     return pattern
   }
 }

@@ -36,8 +36,8 @@ To identify cartridge and cartridge collector slots, we support a variety of fla
 The following flavours are supported currently:
 
   * Hash: Documents suitable for source code with hash-style comments
-    * Cartridge example: `# SOCKO: CARTRIDGE-NAME #`
-    * Cartridge collector example: `# SOCKO:COLLECT:MAXIMUMDEPTH:PATTERNTYPE:PATTERN #`
+    * Cartridge example: `## SOCKO: CARTRIDGE-NAME ##`
+    * Cartridge collector example: `## SOCKO:COLLECT:MAXIMUMDEPTH:PATTERNTYPE:PATTERN ##`
   * JSON: Flavour suitable for JSON documents. The trailing , is optional
     * Cartridge example: `"_SOCKO": "CARTRIDGE-NAME",`
     * Cartridge collector example: `"_SOCKO:COLLECT": "MAXIMUMDEPTH:PATTERNTYPE:PATTERN",`
@@ -52,7 +52,7 @@ The following flavours are supported currently:
     * Cartridge collector example: `// SOCKO:COLLECT:MAXIMUMDEPTH:PATTERNTYPE:PATTERN //`
   * XML: Flavour for documents, that need XML validity
     * Cartridge example: `<!-- SOCKO: CARTRIDGE-NAME -->`
-    * Cartridge collector example: `<!-- SOCKO:COLLECT:MAXIMUMDEPTH:PATTERNTYPE:PATTERN -->`
+    * Cartridge collector example: `<!-- SOCKO:COLLECT:MAXIMUMDEPTH:PATTERNTYPE:PATTERN -->
 
 `MAXIMUMDEPTH` matches the maxDepth property of SocketNodeInterface, the `PATTERNTYPE` can either be `G` for a glob pattern or `R` for a regexp pattern.
 

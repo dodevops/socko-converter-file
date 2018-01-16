@@ -1,6 +1,6 @@
 {
   "name": "socko-converter-file",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "Converting file hierarchies to SOCKO! nodes",
   "keywords": [
     "socko",
@@ -25,7 +25,7 @@
   "dependencies": {
     "bluebird": "^3.5.1",
     "loglevel": "^1.6.0",
-    "file-hierarchy": "^1.0.0",
+    "file-hierarchy": "^2.0.0",
     "xregexp": "^3.2.0",
     "socko-api": "^0.2.0"
   },

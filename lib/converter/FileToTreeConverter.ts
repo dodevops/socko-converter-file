@@ -1,4 +1,4 @@
-import { RootNodeBuilder, RootNodeInterface, SimpleNodeBuilder, SockoNodeInterface } from 'socko-api'
+import { BranchNodeBuilder, RootNodeBuilder, RootNodeInterface, SimpleNodeBuilder, SockoNodeInterface } from 'socko-api'
 import { FileNode } from 'file-hierarchy'
 import { ConverterOptionsInterface } from '../options/ConverterOptionsInterface'
 import { ConverterOptionsFactory } from '../options/ConverterOptionsFactory'
@@ -79,7 +79,7 @@ export class FileToTreeConverter {
               }
               if (current.stats.isDirectory()) {
                 this._log.debug('This simply is a directory.')
-                let newNode = new SimpleNodeBuilder()
+                let newNode = new BranchNodeBuilder()
                   .withName(current.name)
                   .build()
                 return this._convertTree(current, newNode)

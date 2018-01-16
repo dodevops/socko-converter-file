@@ -95,8 +95,8 @@
 				<p>The following flavours are supported currently:</p>
 				<ul>
 					<li>Hash: Documents suitable for source code with hash-style comments<ul>
-							<li>Cartridge example: <code># SOCKO: CARTRIDGE-NAME #</code></li>
-							<li>Cartridge collector example: <code># SOCKO:COLLECT:MAXIMUMDEPTH:PATTERNTYPE:PATTERN #</code></li>
+							<li>Cartridge example: <code>## SOCKO: CARTRIDGE-NAME ##</code></li>
+							<li>Cartridge collector example: <code>## SOCKO:COLLECT:MAXIMUMDEPTH:PATTERNTYPE:PATTERN ##</code></li>
 						</ul>
 					</li>
 					<li>JSON: Flavour suitable for JSON documents. The trailing , is optional<ul>
@@ -121,7 +121,7 @@
 					</li>
 					<li>XML: Flavour for documents, that need XML validity<ul>
 							<li>Cartridge example: <code>&lt;!-- SOCKO: CARTRIDGE-NAME --&gt;</code></li>
-							<li>Cartridge collector example: <code>&lt;!-- SOCKO:COLLECT:MAXIMUMDEPTH:PATTERNTYPE:PATTERN --&gt;</code></li>
+							<li>Cartridge collector example: `<!-- SOCKO:COLLECT:MAXIMUMDEPTH:PATTERNTYPE:PATTERN --></li>
 						</ul>
 					</li>
 				</ul>

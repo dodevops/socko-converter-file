@@ -43,13 +43,13 @@ export class TreeToFileConverter {
     if (node.type === SockoNodeType.Root) {
       pathResolver = Bluebird.resolve(this._options.outputPath)
     } else {
-      pathResolver = node.getPath(path.sep)
+      pathResolver = node.getPathNodes()
         .then(
-          value => {
-            let pathComponents = value.split(path.sep)
-            pathComponents.shift()
-            pathComponents.unshift(this._options.outputPath)
-            return Bluebird.resolve(path.join.apply(null, pathComponents))
+          pathComponents => {
+            let pathNames: Array<string> = pathComponents.map(component => component.name)
+            pathNames.shift()
+            pathNames.unshift(this._options.outputPath)
+            return Bluebird.resolve(path.join.apply(null, pathNames))
           }
         )
     }

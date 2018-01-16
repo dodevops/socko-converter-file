@@ -11,6 +11,7 @@ chai.use(chaiAsPromised)
 
 import * as chaiFiles from 'chai-files'
 import * as path from 'path'
+import { LogLevelDesc } from 'loglevel'
 
 chai.use(chaiFiles)
 

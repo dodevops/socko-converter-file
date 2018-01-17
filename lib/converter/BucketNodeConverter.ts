@@ -64,7 +64,7 @@ export class BucketNodeConverter implements NodeConverterInterface {
             } else {
               this._log.warn(
                 'The patterntype is missing from the bucket pattern. This is deprecated and support for it' +
-                'will be removed in future versions. Please add a "G" between the max depth and the pattern parameter.'
+                ' will be removed in future versions. Please add a "G" between the max depth and the pattern parameter.'
               )
               this._log.debug(
                 `Setting patterntype to ${options.bucketPattern.globPatternFlag} to be backwards compatible`
@@ -74,10 +74,10 @@ export class BucketNodeConverter implements NodeConverterInterface {
 
             if (patternType === options.bucketPattern.regExpPatternFlag) {
               this._log.debug('This is a RegExp pattern')
-              pattern = new RegExp(match.pattern)
+              pattern = new RegExp(match[options.bucketPattern.patternGroupName])
             } else if (patternType === options.bucketPattern.globPatternFlag) {
               this._log.debug('This is a Glob pattern')
-              pattern = match.pattern
+              pattern = match[options.bucketPattern.patternGroupName]
             } else {
               return Bluebird.reject(new UnknownPatternTypeError(patternType))
             }
@@ -92,7 +92,7 @@ export class BucketNodeConverter implements NodeConverterInterface {
                   parseInt(
                     (
                       match as any
-                    ).maxDepth,
+                    )[options.bucketPattern.maxDepthGroupName],
                     10
                   )
                 )

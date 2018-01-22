@@ -4,6 +4,7 @@ import * as fs from 'fs'
 import * as path from 'path'
 import { getLogger, Logger } from 'loglevel'
 import { createHash } from 'crypto'
+import { mkdirs } from 'fs-extra'
 import Bluebird = require('bluebird')
 
 /**
@@ -77,7 +78,7 @@ export class TreeToFileConverter {
    * @private
    */
   private _processDirectory (node: SockoNodeInterface, nodePath: string): Bluebird<void> {
-    return Bluebird.fromCallback(fs.mkdir.bind(null, nodePath))
+    return Bluebird.fromCallback(mkdirs.bind(null, nodePath))
       .catch(
         (error: any) => {
           return error.code === 'EEXIST'

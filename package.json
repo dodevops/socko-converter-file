@@ -1,6 +1,6 @@
 {
   "name": "socko-converter-file",
-  "version": "0.6.3",
+  "version": "1.0.0",
   "description": "Converting file hierarchies to SOCKO! nodes",
   "keywords": [
     "socko",

@@ -66,4 +66,15 @@ export interface FlavourInterface {
    * What string in the patternType-match should trigger a glob pattern? [G]
    */
   globPatternFlag: string
+
+  /**
+   * The named group used in the pattern to denote, if the cartridge slot should use environment variables
+   */
+  environmentGroupName: string
+
+  /**
+   * The value of the environmentGroupName to denote, that the environment variables should be used
+   */
+  environmentTrueFlag: string
+
 }

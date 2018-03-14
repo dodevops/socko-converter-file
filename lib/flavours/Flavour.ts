@@ -16,6 +16,8 @@ export class Flavour implements FlavourInterface {
   private _collectorPatternTypeGroupName: string
   private _regExpPatternFlag: string
   private _globPatternFlag: string
+  private _environmentGroupName: string
+  private _environmentTrueFlag: string
 
   public get name (): string {
     return this._name
@@ -111,5 +113,21 @@ export class Flavour implements FlavourInterface {
 
   public set globPatternFlag (value: string) {
     this._globPatternFlag = value
+  }
+
+  public get environmentGroupName (): string {
+    return this._environmentGroupName
+  }
+
+  public set environmentGroupName (value: string) {
+    this._environmentGroupName = value
+  }
+
+  public get environmentTrueFlag (): string {
+    return this._environmentTrueFlag
+  }
+
+  public set environmentTrueFlag (value: string) {
+    this._environmentTrueFlag = value
   }
 }

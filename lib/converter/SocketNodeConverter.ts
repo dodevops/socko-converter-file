@@ -69,14 +69,21 @@ export class SocketNodeConverter implements NodeConverterInterface {
 
               for (let cartridgeSlot of cartridgeSlots) {
                 if (cartridgeSlot.index > match.index) {
-                  cartridgeSlot.index -= match[0].length
+                  cartridgeSlot.index -= match[ 0 ].length
                 }
               }
 
+              let cartridgeSlotBuilder = new CartridgeSlotBuilder()
+                .withCartridgeName(match[ flavour.cartridgeGroupName ])
+                .withIndex(match.index)
+
+              if (match.hasOwnProperty(flavour.environmentGroupName)) {
+                if (match[ flavour.environmentGroupName ] === flavour.environmentTrueFlag) {
+                  cartridgeSlotBuilder.withEnvironment()
+                }
+              }
               cartridgeSlots.push(
-                new CartridgeSlotBuilder()
-                  .withCartridgeName(match[flavour.cartridgeGroupName])
-                  .withIndex(match.index)
+                cartridgeSlotBuilder
                   .build()
               )
 
@@ -114,27 +121,27 @@ export class SocketNodeConverter implements NodeConverterInterface {
               }
 
               let pattern: RegExp | string
-              if (match[flavour.collectorPatternTypeGroupName] === flavour.regExpPatternFlag) {
+              if (match[ flavour.collectorPatternTypeGroupName ] === flavour.regExpPatternFlag) {
                 this._log.debug('This is a RegExp pattern')
-                pattern = new RegExp(match[flavour.collectorPatternGroupName])
-              } else if (match[flavour.collectorPatternTypeGroupName] === flavour.globPatternFlag) {
+                pattern = new RegExp(match[ flavour.collectorPatternGroupName ])
+              } else if (match[ flavour.collectorPatternTypeGroupName ] === flavour.globPatternFlag) {
                 this._log.debug('This is a glob pattern')
-                pattern = match[flavour.collectorPatternGroupName]
+                pattern = match[ flavour.collectorPatternGroupName ]
               } else {
-                return Bluebird.reject(new UnknownPatternTypeError(match[flavour.collectorPatternTypeGroupName]))
+                return Bluebird.reject(new UnknownPatternTypeError(match[ flavour.collectorPatternTypeGroupName ]))
               }
 
               this._log.debug('Checking, if there are other slots behind this one.')
 
               for (let cartridgeSlot of cartridgeSlots) {
                 if (cartridgeSlot.index > match.index) {
-                  cartridgeSlot.index -= match[0].length
+                  cartridgeSlot.index -= match[ 0 ].length
                 }
               }
 
               let maxDepth: number
 
-              if (match[flavour.collectorMaxDepthGroupName] === '-') {
+              if (match[ flavour.collectorMaxDepthGroupName ] === '-') {
                 this._log.warn(
                   'Setting max Depth to - is deprecated and ' +
                   'support for it will be removed in future releases. Please set it to -1 instead.'
@@ -142,7 +149,7 @@ export class SocketNodeConverter implements NodeConverterInterface {
                 this._log.debug('Max depth was -, setting it to -1 to be backwards compatible.')
                 maxDepth = -1
               } else {
-                maxDepth = parseInt(match[flavour.collectorMaxDepthGroupName], 10)
+                maxDepth = parseInt(match[ flavour.collectorMaxDepthGroupName ], 10)
               }
 
               cartridgeSlots.push(

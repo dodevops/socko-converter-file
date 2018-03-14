@@ -2,7 +2,13 @@ import 'mocha'
 import { FileToTreeConverter } from '../lib/converter/FileToTreeConverter'
 import { FileNode, ScanOptions } from 'file-hierarchy'
 import * as path from 'path'
-import { BucketNodeInterface, SocketNodeInterface, SockoNodeInterface, SockoNodeType } from 'socko-api'
+import {
+  BucketNodeInterface,
+  CartridgeSlotBuilder,
+  SocketNodeInterface,
+  SockoNodeInterface,
+  SockoNodeType
+} from 'socko-api'
 import chai = require('chai')
 import chaiAsPromised = require('chai-as-promised')
 import Bluebird = require('bluebird')
@@ -72,32 +78,71 @@ describe('FileToTreeConverter', function (): void {
 
           chai.expect(
             slots.length
-          ).to.equal(18)
+          ).to.equal(24)
 
-          let slotIndices = [
-            18,
-            26,
-            44,
-            54,
-            63,
-            70,
-            96,
-            105,
-            124,
-            135,
-            144,
-            151,
-            176,
-            185,
-            204,
-            215,
-            224,
-            231
+          let testSlots = [
+            new CartridgeSlotBuilder().withIndex(18).withCartridgeName('HASHCARTRIDGE').build(),
+            new CartridgeSlotBuilder().withIndex(26).withCartridgeName('JSONCARTRIDGE').build(),
+            new CartridgeSlotBuilder().withIndex(44).withCartridgeName('MULTILINECARTRIDGE').build(),
+            new CartridgeSlotBuilder().withIndex(54).withCartridgeName('NATIVECARTRIDGE').build(),
+            new CartridgeSlotBuilder().withIndex(63).withCartridgeName('SLASHCARTRIDGE').build(),
+            new CartridgeSlotBuilder().withIndex(70).withCartridgeName('XMLCARTRIDGE').build(),
+
+            new CartridgeSlotBuilder().withIndex(96).withCartridgePattern(/HASHCOLLECTOR.*/)
+              .withIsCollector(true)
+              .withMaxDepth(-1).build(),
+            new CartridgeSlotBuilder().withIndex(105).withCartridgePattern(/JSONCOLLECTOR.*/)
+              .withIsCollector(true)
+              .withMaxDepth(0).build(),
+            new CartridgeSlotBuilder().withIndex(124).withCartridgePattern(/MULTILINESLASHCOLLECTOR.*/)
+              .withIsCollector(true)
+              .withMaxDepth(1).build(),
+            new CartridgeSlotBuilder().withIndex(135).withCartridgePattern(/NATIVECOLLECTOR.*/)
+              .withIsCollector(true)
+              .withMaxDepth(2).build(),
+            new CartridgeSlotBuilder().withIndex(144).withCartridgePattern(/SLASHCOLLECTOR.*/)
+              .withIsCollector(true)
+              .withMaxDepth(3).build(),
+            new CartridgeSlotBuilder().withIndex(151).withCartridgePattern(/XMLCOLLECTOR.*/)
+              .withIsCollector(true)
+              .withMaxDepth(4).build(),
+
+            new CartridgeSlotBuilder().withIndex(176).withCartridgePattern('HASHCOLLECTOR*')
+              .withIsCollector(true)
+              .withMaxDepth(-1).build(),
+            new CartridgeSlotBuilder().withIndex(185).withCartridgePattern('JSONCOLLECTOR*')
+              .withIsCollector(true)
+              .withMaxDepth(0).build(),
+            new CartridgeSlotBuilder().withIndex(204).withCartridgePattern('MULTILINESLASHCOLLECTOR*')
+              .withIsCollector(true)
+              .withMaxDepth(1).build(),
+            new CartridgeSlotBuilder().withIndex(215).withCartridgePattern('NATIVECOLLECTOR*')
+              .withIsCollector(true)
+              .withMaxDepth(2).build(),
+            new CartridgeSlotBuilder().withIndex(224).withCartridgePattern('SLASHCOLLECTOR*')
+              .withIsCollector(true)
+              .withMaxDepth(3).build(),
+            new CartridgeSlotBuilder().withIndex(231).withCartridgePattern('XMLCOLLECTOR*')
+              .withIsCollector(true)
+              .withMaxDepth(4).build(),
+
+            new CartridgeSlotBuilder().withIndex(245).withCartridgeName('HASHCARTRIDGE')
+              .withEnvironment().build(),
+            new CartridgeSlotBuilder().withIndex(253).withCartridgeName('JSONCARTRIDGE')
+              .withEnvironment().build(),
+            new CartridgeSlotBuilder().withIndex(271).withCartridgeName('MULTILINECARTRIDGE')
+              .withEnvironment().build(),
+            new CartridgeSlotBuilder().withIndex(281).withCartridgeName('NATIVECARTRIDGE')
+              .withEnvironment().build(),
+            new CartridgeSlotBuilder().withIndex(290).withCartridgeName('SLASHCARTRIDGE')
+              .withEnvironment().build(),
+            new CartridgeSlotBuilder().withIndex(297).withCartridgeName('XMLCARTRIDGE')
+              .withEnvironment().build()
           ]
 
           let sortedSlots = slots.sort((a, b) => { return a.index - b.index })
           sortedSlots.forEach((slot, index) => {
-            chai.expect(slot.index).to.equal(slotIndices[index])
+            chai.expect(slot).to.eql(testSlots[ index ])
           })
 
           chai.expect(
@@ -189,6 +234,26 @@ MULTILINESLASH:
 
 NATIVE:
 
+
+
+SLASH:
+
+
+XML:
+
+
+ENV:
+
+HASH:
+
+
+JSON:
+
+
+MULTILINESLASH:
+
+
+NATIVE:
 
 
 SLASH:

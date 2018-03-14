@@ -28,6 +28,14 @@ export abstract class AbstractFlavourFactory {
     if (!returnValue.regExpPatternFlag) {
       returnValue.regExpPatternFlag = 'R'
     }
+
+    if (!returnValue.environmentGroupName) {
+      returnValue.environmentGroupName = 'env'
+    }
+
+    if (!returnValue.environmentTrueFlag) {
+      returnValue.environmentTrueFlag = 'E:'
+    }
     return returnValue
   }
 

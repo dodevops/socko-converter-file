@@ -1,6 +1,6 @@
 {
   "name": "socko-converter-file",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Converting file hierarchies to SOCKO! nodes",
   "keywords": [
     "socko",
@@ -12,7 +12,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "git@github.com:dodevops/socko-converter-file.git"
   },
   "files": [
     "index.d.ts",
@@ -61,6 +61,7 @@
     "tslint-config-standard": "^7.0.0",
     "typedoc": "^0.11.1",
     "typedoc-plugin-external-module-map": "0.0.7",
-    "typescript": "^2.6.2"
+    "typescript": "^2.6.2",
+    "marked": "^0.3.17"
   }
 }

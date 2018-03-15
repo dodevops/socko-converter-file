@@ -11,7 +11,7 @@ export class SlashFlavourFactory extends AbstractFlavourFactory {
   protected _createInternal (): FlavourInterface {
     let flavour = new Flavour()
     flavour.name = 'Slash'
-    flavour.description = 'Flavour for source code with slash-comment style' +
+    flavour.description = 'Flavour for source code with slash-comment style. ' +
       'Prefix cartridge name with E: to fetch the content from an environment variable'
     flavour.example = '// SOCKO: CARTRIDGE-NAME //'
     flavour.collectorExample = '// SOCKO:COLLECT:MAXIMUMDEPTH:PATTERNTYPE:PATTERN //'

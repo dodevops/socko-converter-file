@@ -38,19 +38,19 @@ The following flavours are supported currently:
   * Hash: Documents suitable for source code with hash-style comments. Prefix cartridge name with E: to fetch the content from an environment variable
     * Cartridge example: `## SOCKO: CARTRIDGE-NAME ##`
     * Cartridge collector example: `## SOCKO:COLLECT:MAXIMUMDEPTH:PATTERNTYPE:PATTERN ##`
-  * JSON: Flavour suitable for JSON documents. The trailing , is optionalPrefix cartridge name with E: to fetch the content from an environment variable
+  * JSON: Flavour suitable for JSON documents. The trailing , is optional. Prefix cartridge name with E: to fetch the content from an environment variable
     * Cartridge example: `"_SOCKO": "CARTRIDGE-NAME",`
     * Cartridge collector example: `"_SOCKO:COLLECT": "MAXIMUMDEPTH:PATTERNTYPE:PATTERN",`
-  * Multiline-Slash: Flavour for source code with slash-comments, multiline optionPrefix cartridge name with E: to fetch the content from an environment variable
+  * Multiline-Slash: Flavour for source code with slash-comments, multiline option. Prefix cartridge name with E: to fetch the content from an environment variable
     * Cartridge example: `/* SOCKO: CARTRIDGE-NAME */`
     * Cartridge collector example: `/* SOCKO:COLLECT:MAXIMUMDEPTH:PATTERNTYPE:PATTERN */`
-  * Native: SOCKO!'s own, native flavourPrefix cartridge name with E: to fetch the content from an environment variable
+  * Native: SOCKO!'s own, native flavour. Prefix cartridge name with E: to fetch the content from an environment variable
     * Cartridge example: `{{<< SOCKO: CARTRIDGE-NAME >>}}`
     * Cartridge collector example: `{{<< SOCKO:COLLECT:MAXIMUMDEPTH:PATTERNTYPE:PATTERN >>}}`
-  * Slash: Flavour for source code with slash-comment stylePrefix cartridge name with E: to fetch the content from an environment variable
+  * Slash: Flavour for source code with slash-comment style. Prefix cartridge name with E: to fetch the content from an environment variable
     * Cartridge example: `// SOCKO: CARTRIDGE-NAME //`
     * Cartridge collector example: `// SOCKO:COLLECT:MAXIMUMDEPTH:PATTERNTYPE:PATTERN //`
-  * XML: Flavour for documents, that need XML validityPrefix cartridge name with E: to fetch the content from an environment variable
+  * XML: Flavour for documents, that need XML validity. Prefix cartridge name with E: to fetch the content from an environment variable
     * Cartridge example: `<!-- SOCKO: CARTRIDGE-NAME -->`
     * Cartridge collector example: `<!-- SOCKO:COLLECT:MAXIMUMDEPTH:PATTERNTYPE:PATTERN -->`
 

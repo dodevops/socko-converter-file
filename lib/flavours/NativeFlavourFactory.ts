@@ -11,7 +11,7 @@ export class NativeFlavourFactory extends AbstractFlavourFactory {
   protected _createInternal (): FlavourInterface {
     let flavour = new Flavour()
     flavour.name = 'Native'
-    flavour.description = 'SOCKO!\'s own, native flavour' +
+    flavour.description = 'SOCKO!\'s own, native flavour. ' +
       'Prefix cartridge name with E: to fetch the content from an environment variable'
     flavour.example = '{{<< SOCKO: CARTRIDGE-NAME >>}}'
     flavour.collectorExample = '{{<< SOCKO:COLLECT:MAXIMUMDEPTH:PATTERNTYPE:PATTERN >>}}'

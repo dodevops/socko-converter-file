@@ -14,7 +14,7 @@ export class MultilineSlashFlavourFactory extends AbstractFlavourFactory {
   protected _createInternal (): FlavourInterface {
     let flavour = new Flavour()
     flavour.name = 'Multiline-Slash'
-    flavour.description = 'Flavour for source code with slash-comments, multiline option' +
+    flavour.description = 'Flavour for source code with slash-comments, multiline option. ' +
       'Prefix cartridge name with E: to fetch the content from an environment variable'
     flavour.example = '/* SOCKO: CARTRIDGE-NAME */'
     flavour.collectorExample = '/* SOCKO:COLLECT:MAXIMUMDEPTH:PATTERNTYPE:PATTERN */'

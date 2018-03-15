@@ -94,34 +94,34 @@
 				<p>To identify cartridge and cartridge collector slots, we support a variety of flavours in the content of the socket file. All supported flavours are checked in turn and all matching flavours are extracted and removed from the content in the SocketNodeInterface.</p>
 				<p>The following flavours are supported currently:</p>
 				<ul>
-					<li>Hash: Documents suitable for source code with hash-style comments<ul>
+					<li>Hash: Documents suitable for source code with hash-style comments. Prefix cartridge name with E: to fetch the content from an environment variable<ul>
 							<li>Cartridge example: <code>## SOCKO: CARTRIDGE-NAME ##</code></li>
 							<li>Cartridge collector example: <code>## SOCKO:COLLECT:MAXIMUMDEPTH:PATTERNTYPE:PATTERN ##</code></li>
 						</ul>
 					</li>
-					<li>JSON: Flavour suitable for JSON documents. The trailing , is optional<ul>
+					<li>JSON: Flavour suitable for JSON documents. The trailing , is optionalPrefix cartridge name with E: to fetch the content from an environment variable<ul>
 							<li>Cartridge example: <code>&quot;_SOCKO&quot;: &quot;CARTRIDGE-NAME&quot;,</code></li>
 							<li>Cartridge collector example: <code>&quot;_SOCKO:COLLECT&quot;: &quot;MAXIMUMDEPTH:PATTERNTYPE:PATTERN&quot;,</code></li>
 						</ul>
 					</li>
-					<li>Multiline-Slash: Flavour for source code with slash-comments, multiline option<ul>
+					<li>Multiline-Slash: Flavour for source code with slash-comments, multiline optionPrefix cartridge name with E: to fetch the content from an environment variable<ul>
 							<li>Cartridge example: <code>/* SOCKO: CARTRIDGE-NAME */</code></li>
 							<li>Cartridge collector example: <code>/* SOCKO:COLLECT:MAXIMUMDEPTH:PATTERNTYPE:PATTERN */</code></li>
 						</ul>
 					</li>
-					<li>Native: SOCKO!&#39;s own, native flavour<ul>
+					<li>Native: SOCKO!&#39;s own, native flavourPrefix cartridge name with E: to fetch the content from an environment variable<ul>
 							<li>Cartridge example: <code>{{&lt;&lt; SOCKO: CARTRIDGE-NAME &gt;&gt;}}</code></li>
 							<li>Cartridge collector example: <code>{{&lt;&lt; SOCKO:COLLECT:MAXIMUMDEPTH:PATTERNTYPE:PATTERN &gt;&gt;}}</code></li>
 						</ul>
 					</li>
-					<li>Slash: Flavour for source code with slash-comment style<ul>
+					<li>Slash: Flavour for source code with slash-comment stylePrefix cartridge name with E: to fetch the content from an environment variable<ul>
 							<li>Cartridge example: <code>// SOCKO: CARTRIDGE-NAME //</code></li>
 							<li>Cartridge collector example: <code>// SOCKO:COLLECT:MAXIMUMDEPTH:PATTERNTYPE:PATTERN //</code></li>
 						</ul>
 					</li>
-					<li>XML: Flavour for documents, that need XML validity<ul>
+					<li>XML: Flavour for documents, that need XML validityPrefix cartridge name with E: to fetch the content from an environment variable<ul>
 							<li>Cartridge example: <code>&lt;!-- SOCKO: CARTRIDGE-NAME --&gt;</code></li>
-							<li>Cartridge collector example: `<!-- SOCKO:COLLECT:MAXIMUMDEPTH:PATTERNTYPE:PATTERN --></li>
+							<li>Cartridge collector example: <code>&lt;!-- SOCKO:COLLECT:MAXIMUMDEPTH:PATTERNTYPE:PATTERN --&gt;</code></li>
 						</ul>
 					</li>
 				</ul>

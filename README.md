@@ -35,24 +35,24 @@ To identify cartridge and cartridge collector slots, we support a variety of fla
 
 The following flavours are supported currently:
 
-  * Hash: Documents suitable for source code with hash-style comments
+  * Hash: Documents suitable for source code with hash-style comments. Prefix cartridge name with E: to fetch the content from an environment variable
     * Cartridge example: `## SOCKO: CARTRIDGE-NAME ##`
     * Cartridge collector example: `## SOCKO:COLLECT:MAXIMUMDEPTH:PATTERNTYPE:PATTERN ##`
-  * JSON: Flavour suitable for JSON documents. The trailing , is optional
+  * JSON: Flavour suitable for JSON documents. The trailing , is optionalPrefix cartridge name with E: to fetch the content from an environment variable
     * Cartridge example: `"_SOCKO": "CARTRIDGE-NAME",`
     * Cartridge collector example: `"_SOCKO:COLLECT": "MAXIMUMDEPTH:PATTERNTYPE:PATTERN",`
-  * Multiline-Slash: Flavour for source code with slash-comments, multiline option
+  * Multiline-Slash: Flavour for source code with slash-comments, multiline optionPrefix cartridge name with E: to fetch the content from an environment variable
     * Cartridge example: `/* SOCKO: CARTRIDGE-NAME */`
     * Cartridge collector example: `/* SOCKO:COLLECT:MAXIMUMDEPTH:PATTERNTYPE:PATTERN */`
-  * Native: SOCKO!'s own, native flavour
+  * Native: SOCKO!'s own, native flavourPrefix cartridge name with E: to fetch the content from an environment variable
     * Cartridge example: `{{<< SOCKO: CARTRIDGE-NAME >>}}`
     * Cartridge collector example: `{{<< SOCKO:COLLECT:MAXIMUMDEPTH:PATTERNTYPE:PATTERN >>}}`
-  * Slash: Flavour for source code with slash-comment style
+  * Slash: Flavour for source code with slash-comment stylePrefix cartridge name with E: to fetch the content from an environment variable
     * Cartridge example: `// SOCKO: CARTRIDGE-NAME //`
     * Cartridge collector example: `// SOCKO:COLLECT:MAXIMUMDEPTH:PATTERNTYPE:PATTERN //`
-  * XML: Flavour for documents, that need XML validity
+  * XML: Flavour for documents, that need XML validityPrefix cartridge name with E: to fetch the content from an environment variable
     * Cartridge example: `<!-- SOCKO: CARTRIDGE-NAME -->`
-    * Cartridge collector example: `<!-- SOCKO:COLLECT:MAXIMUMDEPTH:PATTERNTYPE:PATTERN -->
+    * Cartridge collector example: `<!-- SOCKO:COLLECT:MAXIMUMDEPTH:PATTERNTYPE:PATTERN -->`
 
 `MAXIMUMDEPTH` matches the maxDepth property of SocketNodeInterface, the `PATTERNTYPE` can either be `G` for a glob pattern or `R` for a regexp pattern.
 

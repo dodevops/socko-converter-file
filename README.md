@@ -1,3 +1,7 @@
+**SOCKO IS ARCHIVED**
+
+I'm sorry, but we're archiving the Socko project because it isn't maintained anymore and the usage for it somehow outlived itself. 
+
 # socko-converter-file - Converting file hierarchies to SOCKO! nodes
 
 [![Build Status](https://travis-ci.org/dodevops/socko-converter-file.svg?branch=master)](https://travis-ci.org/dodevops/socko-converter-file) [![Coverage Status](https://coveralls.io/repos/github/dodevops/socko-converter-file/badge.svg?branch=master)](https://coveralls.io/github/dodevops/socko-converter-file?branch=master) [![npm](https://img.shields.io/npm/v/socko-converter-file.svg)](https://www.npmjs.com/package/socko-converter-file)
